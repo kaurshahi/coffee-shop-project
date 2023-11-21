@@ -2,5 +2,5 @@
 To run locally
   - Clone or download zip folder
   - `cd coffee-shop-project` folder 
-  -  run `npm install:all`
+  -  run `npm run install:all`
   -  and then `npm run dev`
