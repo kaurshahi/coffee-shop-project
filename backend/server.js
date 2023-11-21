@@ -1,14 +1,15 @@
-import express from "express";
+import app from "./app.js";
+import db from "./config/db.js";
 
-const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.send("Hello World (from backend!)");
-});
-
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+db.initialize()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to initialize database:", err);
+    process.exit(1);
+  });
