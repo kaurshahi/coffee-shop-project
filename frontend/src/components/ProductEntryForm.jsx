@@ -17,7 +17,6 @@ function ProductManagement() {
 
   const handleSubmit = async () => {
     try {
-      // API call to add new product
       await fetch("http://localhost:3000/api/add-product", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -38,7 +37,6 @@ function ProductManagement() {
 
   const handleSearch = async () => {
     try {
-      // API call to search products
       const response = await fetch(
         `http://localhost:3000/api/search-products?query=${searchQuery}`,
       );
@@ -54,7 +52,6 @@ function ProductManagement() {
   };
   const fetchProducts = async () => {
     try {
-      // API call to get products
       const response = await fetch("http://localhost:3000/api/products");
       const data = await response.json();
 
@@ -65,7 +62,7 @@ function ProductManagement() {
   };
 
   useEffect(() => {
-    fetchProducts(); // Fetch products on component mount
+    fetchProducts();
   }, []);
 
   return (

@@ -1,4 +1,3 @@
-// Import necessary modules and database configuration
 import express from "express";
 import db from "../config/db.js";
 import oracledb from "oracledb";
@@ -9,8 +8,6 @@ router.post("/api/calculate-tax", async (req, res) => {
   let connection;
   try {
     const { state, subtotal } = req.body;
-
-    // Validate inputs
     if (!state || subtotal === undefined) {
       return res
         .status(400)
